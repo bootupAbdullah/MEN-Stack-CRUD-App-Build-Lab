@@ -4,12 +4,14 @@ dotenv.config();
 
 //load express
 const express = require("express");
+const app = express();
 
 //set up mongoose
 const mongoose = require('mongoose');
 
-const app = express();
-
+// set up method-overide and morgan //set up for deleting an index item / delete route
+const methodOverride = require("method-override"); // new
+const morgan = require("morgan"); //new
 
 //Connect to MongoDB using he connection string in the .env file
 mongoose.connect(process.env.MONGODB_URI);
@@ -21,9 +23,10 @@ mongoose.connection.on('connected', () => {
 // import superhero model
 const Superhero = require('./models/superhero.js');
 
-//conver /new page form data to req.body so that express receive it
+//declaring middleware // urelncoded converts '/new' page form data to req.body so that express receive it
 app.use(express.urlencoded({ extended: false }));
-
+app.use(methodOverride("_method")); // new
+app.use(morgan("dev")); //new
 
 //building first route/home page
 //GET /
@@ -60,6 +63,12 @@ app.post("/superheroes", async (req, res) => {
     await Superhero.create(req.body); // this is what is directly communicating to the mongoDB database and creating the input from the form
     res.redirect('/superheroes');
 });
+
+// delete route - the 'route' uses app.delet to listen for delete requests - which then deletes an item from the index and database
+app.delete('/superheroes/:superheroId', async (req, res) => {
+    await Superhero.findByIdAndDelete(req.params.superheroId)
+    res.redirect("/superheroes")
+})
 
 
 app.listen(3001, () => {

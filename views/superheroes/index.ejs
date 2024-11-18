@@ -6,12 +6,13 @@
     <title>Superhero Index</title>
   </head>
   <body>
-    <h1>All Superheroes!</h1>
+    <a href="/superheroes/new">Add New Superhero</a>
+    <h1>This is Our Superhero Index!</h1>
     <ul>
         <% superheroes.forEach(superhero => { %>
-            <li><%= superhero.name %></li>
+            <li><a href="/superheroes/<%=superhero._id %>"><%= superhero.name %></li>
     <%  }); %>
     </ul>
-    <a href="/superheroes/new">Add New Superhero</a>
+    <a href="/">Back to Home Page</a>
   </body>
 </html>

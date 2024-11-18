@@ -34,14 +34,21 @@ app.get('/', async (req, res) =>{
 // display index route - also the route which submits the '.create' functionality to mongoDB - previously was route only and not a 'page'
 app.get('/superheroes', async (req, res) => {
     const allSuperheroes = await Superhero.find();
-    console.log(allSuperheroes);
     res.render('superheroes/index.ejs', {superheroes: allSuperheroes})
 })
 
+
 //GET superhero/new - purpose is to display a form for data entry.
 app.get('/superheroes/new', (req,res) => {
-    res.render("superheroes/new.ejs")
+    res.render("superheroes/new.ejs");
 });
+
+// 'show' page by id - adding an '/' before the 'superheores' here conflicts with express functuonality and causes error - no need for it.
+app.get('/superheroes/:superheroId', async (req, res) => {
+    const foundSuperhero = await Superhero.findById(req.params.superheroId);
+    res.render("superheroes/show.ejs", {superhero: foundSuperhero});
+})
+
 
 // 1st iteration with 'redirect' the route when 'arrived at' by submitting the form or clicking the 'submit' button on the /new page will 'send the information' to the route below /superheroes/ which will in turn commnicate to express what the form values/or infromation was. If issue with route in future check ejs file for form 'action' and 'method' 
 app.post("/superheroes", async (req, res) => {

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= superhero.name%></title>
+  </head>
+  <body>
+    <a href="/">Back to Home Page</a>
+    <h1><%= superhero.name %>'s Show Page</h1>
+    <% if (superhero.canTheyFly) { %>
+        <p>This Superhero Can Fly!</p>
+<%  } else { %>
+    <p> This Superhero Cannot Fly</p>
+  <% } %>
+    <a href="/superheroes">Back to Index</a>
+  </body>
+</html>

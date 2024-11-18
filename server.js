@@ -19,8 +19,7 @@ mongoose.connection.on('connected', () => {
 });
 
 // import superhero model
-const Superhero = require("./models/superhero.js");
-
+const Superhero = require('./models/superhero.js');
 
 
 //building first route/home page
@@ -29,7 +28,10 @@ app.get('/', async (req, res) =>{
     res.render("index.ejs");
 });
 
-
+//GET superhero/new - sole purpose is to display a form for data entry.
+app.get('/superheroes/new', (req,res) => {
+    res.render("superheroes/new.ejs")
+})
 
 
 

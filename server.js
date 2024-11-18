@@ -21,6 +21,9 @@ mongoose.connection.on('connected', () => {
 // import superhero model
 const Superhero = require('./models/superhero.js');
 
+//conver /new page form data to req.body so that express receive it
+app.use(express.urlencoded({ extended: false }));
+
 
 //building first route/home page
 //GET /
@@ -28,11 +31,22 @@ app.get('/', async (req, res) =>{
     res.render("index.ejs");
 });
 
-//GET superhero/new - sole purpose is to display a form for data entry.
+//GET superhero/new - purpose is to display a form for data entry.
 app.get('/superheroes/new', (req,res) => {
     res.render("superheroes/new.ejs")
-})
+});
 
+
+// 1st iteration with 'redirect' the route when 'arrived at' by submitting the form or clicking the 'submit' button on the /new page will 'send the information' to the route below /superheroes/ which will in turn commnicate to express what the form values/or infromation was. If issue with route in future check ejs file for form 'action' and 'method' 
+app.post("/superheroes", async (req, res) => {
+    if (req.body.canTheyFly === "on") {
+        req.body.canTheyFly = true;
+    } else {
+        req.body.canTheyFly = false;
+    }
+    await Superhero.create(req.body); // this is what is directly communicating to the mongoDB database and creating the input from the form
+    res.redirect('/superheroes/new');
+});
 
 
 app.listen(3001, () => {

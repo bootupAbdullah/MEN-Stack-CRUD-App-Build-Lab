@@ -6,10 +6,10 @@
     <title>Edit <%= superhero.name%></title>
     <form action="/superheroes/<%=superhero._id%>?_method=PUT" method="POST">
         <label for="name">Name:</label>
-        <input type="text" name="name" value="<%= superhero.name%>" />
+        <input type="text" name="name" value="<%= superhero.name%>" id="name" />
 
         <label for="canTheyFly">Can They Fly?</label>
-        <input type="checkbox" name="canTheyFly" <% if (superhero.canTheyFly) {%>checked<%}%> />
+        <input type="checkbox" id="canTheyFly" name="canTheyFly" <% if (superhero.canTheyFly) {%>checked<%}%> />
         <button type="submit">Update Superhero</button>
     </form>
     <a href="/superheroes">Back to Our Superhero Index!</a>

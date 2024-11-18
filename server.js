@@ -73,11 +73,25 @@ app.get("/superheroes/:superheroId/edit", async (req, res) => {
     })
 })
 
-// delete route - the 'route' uses app.delet to listen for delete requests - which then deletes an item from the index and database
+// delete route - the 'route' uses app.delet to listen for delete requests - this captures the information that will be fed to the 'update' route below
 app.delete('/superheroes/:superheroId', async (req, res) => {
     await Superhero.findByIdAndDelete(req.params.superheroId)
     res.redirect("/superheroes")
 })
+
+app.put("/superheroes/:superheroId", async (req, res) => {
+    if(req.body.canTheyFly === "on") {
+        req.body.canTheyFly = true;
+    } else {
+        req.body.canTheyFly = false;
+    }
+
+    await Superhero.findByIdAndUpdate(req.params.superheroId, req.body);
+
+    //redirect to the specific superhero showpage to see the updates
+    res.redirect(`/superheroes/${req.params.superheroId}`)
+})
+
 
 
 app.listen(3001, () => {

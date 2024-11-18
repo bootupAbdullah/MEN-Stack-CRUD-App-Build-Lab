@@ -28,7 +28,7 @@ app.use(express.urlencoded({ extended: false }));
 //building first route/home page
 //GET /
 app.get('/', async (req, res) =>{ 
-    res.render("index.ejs");
+    res.render("homepage.ejs");
 });
 
 // display index route - also the route which submits the '.create' functionality to mongoDB - previously was route only and not a 'page'
@@ -51,7 +51,7 @@ app.post("/superheroes", async (req, res) => {
         req.body.canTheyFly = false;
     }
     await Superhero.create(req.body); // this is what is directly communicating to the mongoDB database and creating the input from the form
-    res.redirect('/superheroes/new');
+    res.redirect('/superheroes');
 });
 
 

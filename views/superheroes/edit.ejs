@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit <%= superhero.name%></title>
+    <form action="/superheroes/<%=superhero._id%>?_method=PUT" method="POST">
+        <label for="name">Name:</label>
+        <input type="text" name="name" value="<%= superhero.name%>" />
+
+        <label for="canTheyFly">Can They Fly?</label>
+        <input type="checkbox" name="canTheyFly" <% if (superhero.canTheyFly) {%>checked<%}%> />
+        <button type="submit">Update Superhero</button>
+    </form>
+    <a href="/superheroes">Back to Our Superhero Index!</a>
+</head>
+<body>
+    
+</body>
+</html>

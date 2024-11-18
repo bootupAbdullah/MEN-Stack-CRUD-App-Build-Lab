@@ -16,6 +16,7 @@
     <form action="/superheroes/<%=superhero._id %>?_method=DELETE" method="POST">
         <button type="submit"> Delete <%= superhero.name %></button>
     </form>
+    <a href="/superheroes/<%= superhero._id%>/edit">Edit <%=superhero.name%></a> <br />
     <a href="/superheroes">Back to Superheroes</a>
   </body>
 </html>

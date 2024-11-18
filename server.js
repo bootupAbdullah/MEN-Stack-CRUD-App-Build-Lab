@@ -16,7 +16,12 @@ mongoose.connect(process.env.MONGODB_URI);
 //log this connecttion status to the console to ensure connection is running smoothly and without error.
 mongoose.connection.on('connected', () => {
     console.log(`Connected to MongoDB ${mongoose.connection.name}, eureka!`)
-})
+});
+
+// import superhero model
+const Superhero = require("./models/superhero.js");
+
+
 
 //building first route/home page
 //GET /

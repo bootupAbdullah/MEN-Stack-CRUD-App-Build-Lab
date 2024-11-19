@@ -42,7 +42,6 @@ app.get('/superheroes', async (req, res) => {
     res.render('superheroes/index.ejs', {superheroes: allSuperheroes})
 })
 
-
 //GET superhero/new - purpose is to display a form for data entry.
 app.get('/superheroes/new', (req,res) => {
     res.render("superheroes/new.ejs");

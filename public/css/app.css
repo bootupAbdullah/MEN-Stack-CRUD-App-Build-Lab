@@ -4,20 +4,54 @@ body {
     font-family: "Comic Neue", cursive;
     font-weight: 300;
     font-style: normal;
-    background-color: blue;
+    background-color: white;
+}
+
+.homepage-body {
+    
 }
 
 .home-container-1 {
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: 2px white solid;
+    width: 98%;
+    height: 95vh;
+    border: 10px solid black;
+    background-color: blue;
+    /* background-image: url('/images/homepage/homepage-banner-img/homepage-banner.jpg'); */
 }
 
 #homepage-banner {
+    display: flex;
+    flex-wrap: wrap;
+    /* border: 2px solid white; */
     width: 80%;
+}
+
+#homepage-image-1{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
     height: 300px;
-    margin-top: 10px;
-    border: 20px solid #1102a2
+    /* border: 20px solid #1102a2 */
+}
+
+#homepage-title {
+    color: yellow;
+    background-color: black;
+}
+
+#homepage-roster-images-div {
+    width: 300px;
+    height: 300px;
+    margin-bottom: 5px;
+    border: 20px solid black;
+
+}
+
+#roster-images {
+    width: 300px;
+    height: 300px;
 }
 

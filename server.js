@@ -27,6 +27,8 @@ const Superhero = require('./models/superhero.js');
 app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride("_method"));
 // app.use(morgan("dev"));
+// css:
+app.use(express.static('public')); //tells express to try to match requests with files in the directory called 'public'
 
 //building first route/home page
 //GET /

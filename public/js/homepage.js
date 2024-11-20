@@ -11,12 +11,12 @@ console.dir(rosterImages)
 
 window.onload = () => {
     const imageArray = [
-      "/images/homepage/homepage-roster-images-div/roster-superman.png",
       "/images/homepage/homepage-roster-images-div/roster-vision.png",
       "/images/homepage/homepage-roster-images-div/roster-wonderWoman.png",
       "/images/homepage/homepage-roster-images-div/roster-batman.png",
       "/images/homepage/homepage-roster-images-div/roster-greenLantern.png",
-      "/images/homepage/homepage-roster-images-div/roster-flash.jpg"
+      "/images/homepage/homepage-roster-images-div/roster-flash.jpg",
+      "/images/homepage/homepage-roster-images-div/roster-superman.png",
     ];
     
     let currentIndex = 0;

@@ -6,9 +6,15 @@
     <link rel="stylesheet" href="/css/app.css">
     <script src="/js/main.js" defer></script>
     <title>Superhero Index</title>
+    <nav class="navbar"> 
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/superheroes/new">Add New Superhero</a></li>
+      </ul>
+    </nav>
   </head>
   <body>
-    <a href="/superheroes/new">Add New Superhero</a>
+    <!-- <a href="/superheroes/new">Add New Superhero</a> -->
     <h1>This is Our Superhero Index!</h1>
     <ul>
         <% superheroes.forEach(superhero => { %>

@@ -1,5 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Mountains+of+Christmas:wght@400;700&display=swap');
 
+.navbar {
+    display: inline-flex;
+    justify-content: flex-end;
+    align-items: center;
+    border: 2px solid black;
+    width: 99%;
+    padding-right: 5px;
+}
+
+.navbar ul li {
+    list-style-type: none;
+    display: inline-block;
+}
+
 body {
     font-family: "Comic Neue", cursive;
     font-weight: 300;
@@ -7,9 +21,6 @@ body {
     background-color: white;
 }
 
-.homepage-body {
-    
-}
 
 .home-container-1 {
     display: flex;
@@ -53,5 +64,9 @@ body {
 #roster-images {
     width: 300px;
     height: 300px;
+}
+
+#homepage-link-to-index{
+cursor: pointer;
 }
 
